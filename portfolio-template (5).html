@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>kaycee's portofolioo</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background: linear-gradient(135deg,#ffe5ec,#e0f7ff,#f5e8ff);
+      color:#333;
+      overflow-x:hidden;
+    }
+
+    .blob{
+      position:fixed;
+      border-radius:50%;
+      filter:blur(60px);
+      opacity:0.5;
+      z-index:-1;
+      animation:float 10s infinite ease-in-out;
+    }
+
+    .blob1{
+      width:300px;
+      height:300px;
+      background:#ffb3c6;
+      top:-50px;
+      left:-80px;
+    }
+
+    .blob2{
+      width:250px;
+      height:250px;
+      background:#bde0fe;
+      bottom:-50px;
+      right:-50px;
+      animation-delay:3s;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(30px);
+      }
+    }
+
+    nav{
+      width:100%;
+      padding:20px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(12px);
+      background:rgba(255,255,255,0.4);
+      z-index:100;
+    }
+
+    nav h1{
+      font-size:28px;
+      color:#ff4d8d;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ff4d8d;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:50px 10%;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h2{
+      font-size:60px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-text span{
+      color:#ff4d8d;
+    }
+
+    .hero-text p{
+      font-size:18px;
+      margin-bottom:30px;
+      color:#555;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:50px;
+      background:#ff4d8d;
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 10px 25px rgba(255,77,141,0.3);
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.03);
+    }
+
+    .card-avatar{
+      width:340px;
+      height:420px;
+      background:rgba(255,255,255,0.35);
+      border:1px solid rgba(255,255,255,0.5);
+      backdrop-filter:blur(15px);
+      border-radius:30px;
+      padding:30px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.1);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      transform:rotate(-3deg);
+      transition:0.4s;
+    }
+
+    .card-avatar:hover{
+      transform:rotate(0deg) scale(1.03);
+    }
+
+    .avatar{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      overflow:hidden;
+      margin-bottom:20px;
+      border:5px solid white;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+}
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      font-size:42px;
+      margin-bottom:40px;
+      text-align:center;
+      color:#ff4d8d;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:rgba(255,255,255,0.4);
+      border-radius:25px;
+      padding:30px;
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.5);
+      transition:0.3s;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-card h3{
+      margin-bottom:15px;
+      color:#333;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+    }
+
+    .skill{
+      padding:14px 24px;
+      border-radius:50px;
+      background:white;
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      font-weight:600;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      color:#666;
+    }
+
+    .sparkle{
+      position:absolute;
+      width:8px;
+      height:8px;
+      background:white;
+      border-radius:50%;
+      animation:sparkle 2s infinite;
+    }
+
+    @keyframes sparkle{
+      0%{
+        transform:scale(0);
+        opacity:0;
+      }
+      50%{
+        transform:scale(1);
+        opacity:1;
+      }
+      100%{
+        transform:scale(0);
+        opacity:0;
+      }
+    }
+
+    @media(max-width:768px){
+      .hero-text h2{
+        font-size:42px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+
+  <nav>
+    <h1>Kalista's Portofolio</h1>
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-text">
+      <h2>
+        hi, i'm <span>Kalista</span><br>
+        usually referred to as kaycee 😽
+      </h2>
+      <a href="#projects" class="btn">get to know mee!!</a>
+    </div>
+
+    <div class="card-avatar">
+      <div class="avatar">
+        <img src='https://media.desenio.com/site_images/685d718a67fd6077b6f2e032_2000914833_18197-5.jpg'>
+        
+      </div>
+
+      <h2>kaycee</h2>
+      <p style="margin-top:10px; text-align:center;">
+        Student • Future Doctor
+      </p>
+      <p style="margin-top:10px; text-align:center;">
+        i'm very passionate in studying, especially since my main life goal is to enter medical school. 
+      </p>
+    </div>
+
+  </section>
+
+  <section id="projects">
+
+    <h2 class="section-title">ABOUT MEEE </h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+        <h3>allow me to introduce myself,</h3>
+        <p>
+          my name is Kalista Celine Tobing and i'm from SMA Wardaya!
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>this year, i'm turning 16!!</h3>
+        <p>
+          my birthday is on the 28th of May yay
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>i don't have a bunch of hobbies..</h3>
+        <p>
+         i spend most of my time studying, singing & watching movies (studying 90% though)
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="skill">
+
+    <h2 class="section-title">tuff skillz</h2>
+
+    <div class="skill">
+      <div class="skill">time management</div>
+      <div class="skill">communication</div>
+      <div class="skill">critical thinking</div>
+      <div class="skill">problem-solving</div>
+      <div class="skill">adaptibility</div>
+      <div class="skill">collaborative</div>
+    </div>
+
+  </section>
+  
+  <section id="achievements">
+
+  <h2 class="section-title">achievements ⭐</h2>
+
+  <div class="projects">
+
+    <div class="project-card">
+      <h3>academic achievements</h3>
+      <p>
+        • Top 3 in Class Ranking since Primary School
+      </p>
+      
+      <p>
+        • OLIMPIADE PELAJAR MERDEKA NASIONAL 5.0 Intermediate Level BIOLOGY - GRAND FINALIST (04/26)
+      </p>
+      
+      <p>
+        • Completion of Kumon English (EFL) (05/21)
+      </p>
+      <p>
+        • Canadian Intermediate Mathematics Contest - High Distinction (11/25)
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>organization & leadership experiences</h3>
+      <p>
+        • member of jhs student council (2023-2024) as academic division
+      </p>
+      <p>
+        • member of jhs student council (2024-2025) as sports division
+      </p>
+      <p>
+        • member of Putra-Putri Altar (church organization) since 2025
+      </p>
+      <p>
+        • secretary of school-based leo club (voluntary service) since 2026
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>committee experiences</h3>
+      <p>
+        • head of jhs yearbook committee (2025)
+      </p>
+      <p>
+        • committee in many school events as student council member (2023-2025)       
+      </p>
+      <p>
+        • publication & documentation committee in MSC Wardaya (2025)
+      </p>
+      <p>
+        • usher commmittee in Colors of Hope Wardaya (2025)
+      </p>
+      <p>
+        • logistics committee in SKUY Natal PPA (2025)
+      </p>
+      <p>
+        • consumption committee in Paskah PPA (2026)
+      </p>
+      <p>
+        • head of TAS PPA committee (2026)
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="education">
+
+  <h2 class="section-title">education background 📚</h2>
+
+  <div class="projects">
+
+    <div class="project-card">
+      <h3>SMA Wardaya</h3>
+      <p>
+        Senior High School Student • Science Major
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>future goals</h3>
+      <p>
+        aspiring future medical student aiming to enter medical school in the future!
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+  <section id="contact">
+
+  <h2 class="section-title">contact me!! 💌</h2>
+
+  <div style="display:flex; justify-content:center; gap:50px;">
+    <a href="mailto:kalistacelinetobing@gmail.com" class="btn">
+      email
+    </a>
+    
+    <a href='https://www.instagram.com/kclistt?igsh=cnJ3bHNvNDNseGpi' class='btn'>
+      instagram
+    </a>
+    
+    <a href='https://wa.me/6282113776967' class='btn'>
+      whatsapp
+    </a>
+  </div>
+
+  </section>
+
+  <script>
+    // tiny sparkle generator
+    setInterval(() => {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+
+      sparkle.style.left = Math.random() * window.innerWidth + "px";
+      sparkle.style.top = Math.random() * window.innerHeight + "px";
+
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => {
+        sparkle.remove();
+      }, 2000);
+    }, 300);
+  </script>
+
+</body>
+</html>
+```
